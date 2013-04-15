@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CycleTimer</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- cycle strings -->
+    <string name="new_cycle">New Cycle</string>
+
+</resources>
