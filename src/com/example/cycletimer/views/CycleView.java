@@ -1,31 +1,32 @@
 package com.example.cycletimer.views;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.example.cycletimer.entities.Cycle;
 
-//TODO: make this a factory
-public class CycleView extends View
+public class CycleView
 {
     private Cycle cycle;
+    OnClickListener onClickListener;
     
-    CycleView(Context context, Cycle cycle)
+    public CycleView(Cycle cycle)
     {
-        super(context);
         this.cycle = cycle;
     }
     
-    //book said good idea to accept attributeset in case constructed from xml
-    CycleView(Context context, AttributeSet attributeSet)
-    {
-        super(context);
-        //TODO: finish this constructor
-    }
-
-    public String getCycleName()
+    public String getName()
     {
         return cycle.name;
     }
+
+    public OnClickListener getOnClickListener()
+    {
+        return onClickListener;
+    }
+    
+    public void setOnClickListener(OnClickListener listener)
+    {
+        onClickListener = listener;
+    }
+
 }

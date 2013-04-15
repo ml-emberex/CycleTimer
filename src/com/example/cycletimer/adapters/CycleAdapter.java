@@ -1,5 +1,6 @@
 package com.example.cycletimer.adapters;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -10,15 +11,15 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.cycletimer.R;
-import com.example.cycletimer.entities.Cycle;
+import com.example.cycletimer.views.CycleView;
 
-public class CycleAdapter extends ArrayAdapter<Cycle>
+public class CycleAdapter extends ArrayAdapter<CycleView>
 {
     private int viewResourceId;
     private LayoutInflater layoutInflater;
-    private List<Cycle> cycles;
+    private List<CycleView> cycles;
 
-    public CycleAdapter(Context context, int viewResourceId, List<Cycle> cycles)
+    public CycleAdapter(Context context, int viewResourceId, ArrayList<CycleView> cycles)
     {
         super(context, viewResourceId, cycles);
         this.cycles = cycles;
@@ -32,9 +33,12 @@ public class CycleAdapter extends ArrayAdapter<Cycle>
 
         TextView textView;
         textView = (TextView)view.findViewById(R.id.cycle_name);
-        Cycle cycleView = cycles.get(position);
-        textView.setText(cycleView.name);
+        CycleView cycleView = cycles.get(position);
+        textView.setText(cycleView.getName());
 
+        view.setOnClickListener(cycleView.getOnClickListener());
         return view;
     }
+    
+    
 }

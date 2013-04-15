@@ -6,11 +6,11 @@ import android.app.Activity;
 import android.widget.ListView;
 
 import com.example.cycletimer.adapters.CycleAdapter;
-import com.example.cycletimer.entities.Cycle;
+import com.example.cycletimer.views.CycleView;
 
 public class CycleManager
 {
-    private ArrayList<Cycle> cycles = new ArrayList<Cycle>();
+    private ArrayList<CycleView> cycles = new ArrayList<CycleView>();
     private CycleAdapter cycleAdapter;
 
     CycleManager(Activity activity) {
@@ -20,10 +20,11 @@ public class CycleManager
         listView.setAdapter(cycleAdapter);
     }
     
-    private Cycle createCycle(String cycleName, CycleType type)
+    private CycleView createCycle(String cycleName, CycleType type)
     {
     	int indexLocation = cycles.size() == 0 ? 0 : cycles.size() - 1;
-    	Cycle cycle = new Cycle(cycleName, CycleType.NEW);
+    	CycleView cycle = CycleFactory.createCycle(cycleName, type);
+//    	Cycle cycle = new Cycle(cycleName, CycleType.NEW);
     	cycles.add(indexLocation, cycle);
     	
     	return cycle;
